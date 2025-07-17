@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us - FDAP ENGINEERING</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background-color: #111;
+    }
+
+    .contact-section {
+      background-image: url('images/background.jpg'); /* Replace with your background image path */
+      background-size: cover;
+      background-position: center;
+      padding: 60px 20px;
+    }
+
+    .contact-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .home-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #00b050;
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 14px;
+      transition: background-color 0.3s;
+    }
+
+    .home-button:hover {
+      background-color: #009440;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .contact-info {
+      margin-bottom: 30px;
+    }
+
+    .contact-info p {
+      margin: 10px 0;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      background-color: #222;
+      color: #fff;
+    }
+
+    .contact-form button {
+      background-color: #00b050;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #009440;
+    }
+
+    @media (max-width: 600px) {
+      .contact-container {
+        padding: 20px;
+      }
+
+      .home-button {
+        font-size: 12px;
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="contact-section">
+    <div class="contact-container">
+      <a href="index.html" class="home-button">Home</a>
+
+      <h2>Contact Us</h2>
+
+      <div class="contact-info">
+        <p><strong>Tel & WhatsApp:</strong> <a href="https://wa.me/27655688260" style="color: #00ffcc;">+27 65 568 8260</a></p>
+        <p><strong>Email:</strong> <a href="mailto:Ftoneafrica@yahoo.com" style="color: #00ffcc;">Ftoneafrica@yahoo.com</a></p>
+        <p><strong>Address:</strong> 123 Industrial Road, Pretoria, South Africa</p>
+      </div>
+
+      <form action="https://formspree.io/f/your-form-id" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>
