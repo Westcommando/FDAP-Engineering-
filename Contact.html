@@ -56,20 +56,23 @@
 
     .contact-info p {
       margin: 10px 0;
-    }.contact-form {
+    }
+  .contact-form {
     max-width: 500px;
     margin: 0 auto;
     padding: 30px;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.7); /* Dark semi-transparent */
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 255, 170, 0.2); /* Greenish glow */
     font-family: Arial, sans-serif;
+    color: white;
   }
 
   .contact-form label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     font-weight: bold;
+    color: #00ffc3; /* Bright teal */
   }
 
   .contact-form input,
@@ -77,25 +80,34 @@
     width: 100%;
     padding: 12px;
     margin-bottom: 20px;
-    border: 2px solid #ccc;
-    border-radius: 6px;
+    border: 2px solid #00ffc3; /* Matching border */
+    border-radius: 8px;
+    background-color: #111;
+    color: white;
     font-size: 16px;
     box-sizing: border-box;
   }
 
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: #aaa;
+  }
+
   .contact-form button {
-    background-color: #007bff;
-    color: white;
+    background-color: #00ffc3;
+    color: #000;
     border: none;
     padding: 14px 20px;
-    border-radius: 6px;
+    border-radius: 8px;
     font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
   }
 
   .contact-form button:hover {
-    background-color: #0056b3;
+    background-color: #00b890;
+    transform: translateY(-2px);
   }
 
     iframe {
