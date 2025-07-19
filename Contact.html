@@ -56,40 +56,38 @@
 
     .contact-info p {
       margin: 10px 0;
-    }
-  .contact-form {
+    }.contact-form {
     max-width: 500px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 30px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     font-family: Arial, sans-serif;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 
   .contact-form label {
     display: block;
     margin-bottom: 8px;
     font-weight: bold;
-    color: #333;
   }
 
   .contact-form input,
   .contact-form textarea {
     width: 100%;
-    padding: 10px 12px;
+    padding: 12px;
     margin-bottom: 20px;
-    border: 1px solid #ccc;
+    border: 2px solid #ccc;
     border-radius: 6px;
-    font-size: 14px;
+    font-size: 16px;
     box-sizing: border-box;
   }
 
   .contact-form button {
-    background-color: #25D366;
+    background-color: #007bff;
     color: white;
-    padding: 12px 20px;
     border: none;
+    padding: 14px 20px;
     border-radius: 6px;
     font-size: 16px;
     cursor: pointer;
@@ -97,7 +95,7 @@
   }
 
   .contact-form button:hover {
-    background-color: #1da851;
+    background-color: #0056b3;
   }
 
     iframe {
@@ -133,8 +131,9 @@
         <p><strong>Email:</strong> <a href="mailto:ftoneafrica@yahoo.com" style="color: #00ffcc;">ftoneafrica@yahoo.com</a></p>
         <p><strong>Address:</strong> 5 8th Street, Springs Old, Springs, 1560, Gauteng, South Africa</p>
       </div>
-
-      <form action="https://formsubmit.co/ftoneafrica@yahoo.com" method="POST" >
+<div>
+  <br>
+     <form action="https://formsubmit.co/ftoneafrica@yahoo.com" method="POST" class="contact-form">
   <label for="name">Full Name</label>
   <input type="text" id="name" name="name" required>
 
@@ -145,8 +144,10 @@
   <textarea id="message" name="message" rows="5" required></textarea>
 
   <button type="submit">Send Message</button>
+       <br>
 </form>
-
+</div>
+<div>
       <!-- Google Maps -->
       <iframe
         src="https://www.google.com/maps?q=5+8th+Street,+Springs+Old,+Springs,+1560,+Gauteng,+South+Africa&output=embed"
