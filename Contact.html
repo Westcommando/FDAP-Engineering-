@@ -57,34 +57,48 @@
     .contact-info p {
       margin: 10px 0;
     }
+  .contact-form {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 
-    .contact-form input,
-    .contact-form textarea,
-    .contact-form button {
-      width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-    }
+  .contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+  }
 
-    .contact-form input,
-    .contact-form textarea {
-      background-color: #222;
-      color: #fff;
-    }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
 
-    .contact-form button {
-      background-color: #00b050;
-      color: #fff;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
+  .contact-form button {
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
 
-    .contact-form button:hover {
-      background-color: #009440;
-    }
+  .contact-form button:hover {
+    background-color: #1da851;
+  }
 
     iframe {
       width: 100%;
@@ -120,12 +134,18 @@
         <p><strong>Address:</strong> 5 8th Street, Springs Old, Springs, 1560, Gauteng, South Africa</p>
       </div>
 
-      <form action="mailto:ftoneafrica@yahoo.com" method="post" enctype="text/plain">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+      <form class="contact-form" action="mailto:ftoneafrica@yahoo.com" method="post" enctype="text/plain">
+  <label for="name">Full Name</label>
+  <input type="text" id="name" name="name" required>
+
+  <label for="email">Email Address</label>
+  <input type="email" id="email" name="email" required>
+
+  <label for="message">Your Message</label>
+  <textarea id="message" name="message" rows="5" required></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
 
       <!-- Google Maps -->
       <iframe
