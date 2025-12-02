@@ -291,6 +291,120 @@ South Africa<br>Postal Code: 1560</p> </a>
     &copy; 2025 FDA Engineering. All rights reserved.
   </div>
 </footer>
+<script>
+(function(){
+  const SHEET_ID = "14ILm35Q7h6Dp3ucifW2gpvpv3BqlOgjMjnty9Q52rYI";
+  const SHEET_NAME = "Form Responses 1";
+
+  const SHEET_JSON_URL =
+    `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${encodeURIComponent(SHEET_NAME)}`;
+
+  const container = document.getElementById('products-container');
+  const loadingText = document.getElementById('products-loading');
+
+  function parseGvizJson(text) {
+    const jsonText = text.replace(/^[^\(]*\(/, '').replace(/\);?$/, '');
+    return JSON.parse(jsonText);
+  }
+
+  function cellValue(cell) {
+    if (!cell) return '';
+    if (cell.v !== undefined) return cell.v;
+    if (cell.f !== undefined) return cell.f;
+    return '';
+  }
+
+  function buildCard(item) {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+
+    const img = document.createElement('img');
+    img.className = 'product-image';
+    img.alt = item.name || 'Product image';
+
+    if (item.image && String(item.image).startsWith('http')) {
+      img.src = item.image;
+    } else {
+      img.src = 'https://via.placeholder.com/600x400?text=No+Image';
+    }
+
+    card.appendChild(img);
+
+    const title = document.createElement('div');
+    title.className = 'product-title';
+    title.textContent = item.name || 'Unnamed item';
+    card.appendChild(title);
+
+    const price = document.createElement('div');
+    price.className = 'product-price';
+    price.textContent = item.price ? String(item.price) : 'Price not set';
+    card.appendChild(price);
+
+    if (item.desc) {
+      const desc = document.createElement('div');
+      desc.className = 'product-desc';
+      desc.textContent = item.desc;
+      card.appendChild(desc);
+    }
+
+    if (item.available) {
+      const avail = document.createElement('div');
+      avail.className = 'product-available';
+      avail.textContent = 'Available: ' + item.available;
+      card.appendChild(avail);
+    }
+
+    return card;
+  }
+
+  function renderProducts(rows) {
+    container.innerHTML = '';
+    if (!rows || rows.length === 0) {
+      container.innerHTML = '<p>No products yet.</p>';
+      return;
+    }
+    rows.forEach(r => {
+      const card = buildCard(r);
+      container.appendChild(card);
+    });
+  }
+
+  function sheetRowsToObjects(table) {
+    const cols = table.cols.map(c => (c && c.label ? c.label.toString().trim() : ''));
+    const keys = cols.map(k => k.toLowerCase().replace(/\s+/g, '_'));
+
+    return (table.rows || []).map(row => {
+      const obj = {};
+      row.c.forEach((cell, i) => {
+        obj[keys[i] || `col_${i}`] = cellValue(cell);
+      });
+      return obj;
+    });
+  }
+
+  fetch(SHEET_JSON_URL)
+    .then(r => r.text())
+    .then(text => {
+      const parsed = parseGvizJson(text);
+      const table = parsed.table;
+      const rows = sheetRowsToObjects(table);
+
+      const mapped = rows.map(r => ({
+        name: r.product_name || r.col_1,
+        price: r.price || r.col_2,
+        desc: r.description || r.col_3,
+        image: r.image_url || r.col_4,
+        available: r.available || r.col_5,
+      }));
+
+      renderProducts(mapped);
+    })
+    .catch(err => {
+      console.error('Error loading sheet:', err);
+      container.innerHTML = '<p>Could not load products. Check sheet sharing settings.</p>';
+    });
+})();
+</script>
 
    
   
